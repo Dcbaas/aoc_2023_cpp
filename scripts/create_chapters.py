@@ -9,7 +9,7 @@ master_cmake_path = os.path.join('CMakeLists.txt')
 def main():
     working_dir = os.path.join('..')
     os.chdir(working_dir)
-    for ch in range(1,2):
+    for ch in range(1,26):
         day_name = f'day_{ch}'
         copytree('template', day_name, dirs_exist_ok=True)
 
