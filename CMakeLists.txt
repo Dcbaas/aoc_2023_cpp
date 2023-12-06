@@ -8,6 +8,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 project("aoc_2023_cpp" VERSION 0.1)
 
+add_subdirectory("common")
 add_subdirectory("day_1")
 add_subdirectory("day_2")
 add_subdirectory("day_3")
