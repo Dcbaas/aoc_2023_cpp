@@ -54,3 +54,6 @@ _deps
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,cmake
 
+# Exclude out directory which contains all the builds
+**/out/**
+
