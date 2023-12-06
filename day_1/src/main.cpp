@@ -6,6 +6,7 @@
 enum class DATATYPE
 {
     example,
+    example2,
     main
 };
 
