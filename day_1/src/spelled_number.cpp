@@ -11,4 +11,3 @@ constexpr CString SIX = "six";
 constexpr CString SEVEN = "seven";
 constexpr CString EIGHT = "eight";
 constexpr CString NINE = "nine";
-    
