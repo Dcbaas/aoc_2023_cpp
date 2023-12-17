@@ -3,6 +3,8 @@
 #include <file_utils.h>
 #include <cctype>
 
+#include "spelled_numbers.h"
+
 enum class DATATYPE
 {
     example,
@@ -11,20 +13,32 @@ enum class DATATYPE
 };
 
 uint32_t determine_calibration_sum(DATATYPE data_type);
+uint32_t determine_calibration_sum(DATATYPE data_type, bool check_spelled_nums);
 
 int main()
 {
 
+    std::cout << "PART 1" << '\n';
     // Determine the Calibration sum for the example
     auto example_sum = determine_calibration_sum(DATATYPE::example);
     std::cout << "The example calibration sum is " << example_sum << '.' << '\n';
 
     auto main_sum = determine_calibration_sum(DATATYPE::main);
     std::cout << "The main calibration sum is " << main_sum << '.' << '\n';
+
+    std::cout << "\n\n";
+    std::cout << "PART 2" << '\n';
+
+    
     return 0; 
 }
 
 uint32_t determine_calibration_sum(DATATYPE data_type)
+{
+    return determine_calibration_sum(data_type, false);
+}
+
+uint32_t determine_calibration_sum(DATATYPE data_type, bool check_spelled_nums)
 {
     uint32_t calibration_sum{0};
     
