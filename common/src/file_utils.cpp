@@ -20,6 +20,12 @@ namespace baas::common
         return fs::current_path() / "input" / "example.txt";
     }
 
+    // Some problems include a second example
+    fs::path get_example_data2_path()
+    {
+        return fs::current_path() / "input" / "example2.txt";
+    }
+
     fs::path get_data_path()
     {
         return fs::current_path() / "input" / "data.txt";
