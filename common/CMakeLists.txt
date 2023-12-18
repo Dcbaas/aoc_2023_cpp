@@ -1,8 +1,8 @@
 project(common)
 
 set(SOURCES
-    "src/lib.cpp"
     "src/file_utils.cpp"
+    "src/string_utils.cpp"
 )
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
