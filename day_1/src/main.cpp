@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <locale>
 #include <sstream>
 #include <file_utils.h>
 #include <cctype>
@@ -14,6 +15,7 @@ enum class DATATYPE
     main
 };
 
+bool isdigit(char c);
 uint32_t determine_calibration_sum(DATATYPE data_type, bool check_spelled_nums=false);
 
 int main()
@@ -36,6 +38,11 @@ int main()
     std::cout << "The main calibration sum is " << main_sum2 << '.' << '\n';
 
     return 0; 
+}
+
+bool isdigit(char c)
+{
+    return false;
 }
 
 uint32_t determine_calibration_sum(DATATYPE data_type, bool check_spelled_nums)
@@ -106,15 +113,8 @@ uint32_t determine_calibration_sum(DATATYPE data_type, bool check_spelled_nums)
                 // This may not be optimized but it gets the job done. 
                 // REMEMBER to preallocate the reverese vector's inital size before running the reverse algorithim.
                 std::vector<char> reverse_chars(characters.size());
-                if (characters.size() == 1)
-                {
-                    reverse_chars = std::vector(characters);
-                }
-                else
-                {
-                    std::reverse_copy(std::begin(characters), std::end(characters), std::begin(reverse_chars));
-                }
-            
+
+                std::reverse_copy(std::begin(characters), std::end(characters), std::begin(reverse_chars));
                 char result = find_spelled_number(reverse_chars.data());
                 if (result != -1)
                 {
@@ -130,7 +130,7 @@ uint32_t determine_calibration_sum(DATATYPE data_type, bool check_spelled_nums)
 
         if (check_spelled_nums)
         {
-            std::cout << cal_number << ":" << calibration_sum << ":" << line << '\n';
+            std::cout << cal_number << "\n";
         }
         
     };
