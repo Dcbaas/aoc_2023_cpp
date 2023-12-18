@@ -2,7 +2,7 @@
 
 namespace baas::common
 {
-    std::vector<std::string> str_split(std::string_view chars, const std::string_view delimiter)
+    std::vector<std::string> str_split(std::string_view chars, std::string_view delimiter)
     {
         std::string chars_copy(chars);
 
