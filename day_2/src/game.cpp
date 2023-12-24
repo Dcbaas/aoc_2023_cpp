@@ -52,8 +52,7 @@ Game parse_game_line(std::string_view line)
             update_counts(game, color, cube_count);
         }
     }
-
-    return Game();
+    return game;
 }
 
 // In the end this conversion might be a waste of time. Oh well.
@@ -99,4 +98,13 @@ void update_counts(Game &game, const Color color, const uint32_t cube_count)
             game.revealed_blue = cube_count;
         }
     }
+}
+
+bool is_valid_game(const Game game)
+{
+    constexpr uint32_t MAX_RED{12};
+    constexpr uint32_t MAX_GREEN{13};
+    constexpr uint32_t MAX_BLUE{14};
+
+    return game.revealed_red <= MAX_RED && game.revealed_green <= MAX_GREEN && game.revealed_blue <= MAX_BLUE;
 }
