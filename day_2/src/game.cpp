@@ -113,3 +113,8 @@ bool is_valid_game(const Game game)
 
     return game.revealed_red <= MAX_RED && game.revealed_green <= MAX_GREEN && game.revealed_blue <= MAX_BLUE;
 }
+
+uint32_t find_cube_power(const Game &game)
+{
+    return game.revealed_red * game.revealed_green * game.revealed_blue;
+}

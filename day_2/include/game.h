@@ -15,9 +15,8 @@ struct Game
 };
 
 std::ostream& operator<<(std::ostream& os, const Game& game);
-
 Game parse_game_line(std::string_view line);
-
 bool is_valid_game(const Game game);
+uint32_t find_cube_power(const Game& game);
 
 #endif
