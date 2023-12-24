@@ -15,6 +15,11 @@ enum class Color
 Color identify_color(std::string_view color_str);
 void update_counts(Game& game, const Color color, const uint32_t cube_count);
 
+std::ostream &operator<<(std::ostream &os, const Game &game)
+{
+    os << "Game: " << game.game_id << ", Red: " << game.revealed_red << ", Green: " << game.revealed_green << ", Blue: " << game.revealed_blue;
+    return os;
+}
 
 Game parse_game_line(std::string_view line)
 {
@@ -28,7 +33,7 @@ Game parse_game_line(std::string_view line)
 
     // Get Game Id
     std::vector<std::string> game_id_split = baas::common::str_split(game_id_str, " ");
-    ss << game_data_split[1];
+    ss << game_id_split[1];
     ss >> game.game_id;
     ss.clear();
 
@@ -42,11 +47,11 @@ Game parse_game_line(std::string_view line)
         for (auto& cubes: cubes_split)
         {
             std::vector<std::string> cube_data_split = baas::common::str_split(cubes, " ");
-            Color color = identify_color(cube_data_split[0]);
+            Color color = identify_color(cube_data_split[1]);
 
             uint32_t cube_count;
             
-            ss << cube_data_split[1];
+            ss << cube_data_split[0];
             ss >> cube_count;
             ss.clear();
             update_counts(game, color, cube_count);

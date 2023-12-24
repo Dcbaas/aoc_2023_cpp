@@ -16,6 +16,9 @@ namespace baas::common
             chars_copy.erase(0, found + delimiter.length());
         }
 
-        return std::vector<std::string>();
+        // Need to append the end of the string to the split.
+        split.push_back(chars_copy);
+        
+        return split;
     }
 }
